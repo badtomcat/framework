@@ -29,6 +29,8 @@ class StartServe extends Command
 
     protected function configure()
     {
+        $this->addOption('host','s',InputOption::VALUE_OPTIONAL,'Host','127.0.0.1');
+        $this->addOption('port','p',InputOption::VALUE_OPTIONAL,'Port',17739);
         $this->setName('serve');
     }
 
