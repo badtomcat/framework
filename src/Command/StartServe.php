@@ -36,7 +36,7 @@ class StartServe extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        chdir($this->path.'');
+        chdir($this->path.'/web');
 
         $output->writeln("<info>Laravel development server started:</info> <http://{$this->host($input)}:{$this->port($input)}>");
         //"c:\xampp\php\php.exe" -S 127.0.0.1:8000 "D:\git\tpv3"/server.php
