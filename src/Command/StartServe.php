@@ -36,10 +36,12 @@ class StartServe extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        chdir($this->path.'/web');
+        chdir($this->path.'');
 
         $output->writeln("<info>Laravel development server started:</info> <http://{$this->host($input)}:{$this->port($input)}>");
+        //"c:\xampp\php\php.exe" -S 127.0.0.1:8000 "D:\git\tpv3"/server.php
 
+//        print $this->serverCommand($input);
         passthru($this->serverCommand($input));
     }
 
@@ -55,7 +57,7 @@ class StartServe extends Command
             ProcessUtils::escapeArgument((new PhpExecutableFinder)->find(false)),
             $this->host($input),
             $this->port($input),
-            ProcessUtils::escapeArgument($this->path.'/web')
+            ProcessUtils::escapeArgument($this->path.'')
         );
     }
 
@@ -81,17 +83,4 @@ class StartServe extends Command
         return $input->getOption('port');
     }
 
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        return [
-            ['host', null, InputOption::VALUE_OPTIONAL, 'The host address to serve the application on.', '127.0.0.1'],
-
-            ['port', null, InputOption::VALUE_OPTIONAL, 'The port to serve the application on.', 8000],
-        ];
-    }
 }
