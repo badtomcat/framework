@@ -286,4 +286,14 @@ class Application extends Container
     {
         static::$instance = $container;
     }
+
+    /**
+     * Set the shared instance of the container.
+     *
+     * @return Application
+     */
+    public static function getInstance()
+    {
+        return static::$instance;
+    }
 }
